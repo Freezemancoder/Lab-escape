@@ -839,6 +839,8 @@ const enemyTypes = {
 };
 
 function spawnEnemy() {
+    if (enemies.length >= 15) return; // limit enemies to prevent lag
+
     const typeKeys = Object.keys(enemyTypes);
     const randomKey = typeKeys[Math.floor(Math.random() * typeKeys.length)];
     const type = enemyTypes[randomKey];
@@ -1084,8 +1086,8 @@ function shoot() {
     setTimeout(() => crosshair.classList.remove('shoot'), 90);
     setTimeout(() => crosshair.classList.remove('recoil'), 160);
 
-    // greatly reduced camera recoil target (decreased a lot)
-    cameraRecoilTarget = Math.max(cameraRecoilTarget, 0.025 + Math.random() * 0.01);
+    // greatly reduced camera recoil target (decreased by 70%)
+    cameraRecoilTarget = Math.max(cameraRecoilTarget, (0.025 + Math.random() * 0.01) * 0.3);
 
     // tiny backward impulse to player body for tactile feedback (softened)
     const forwardVec = new CANNON.Vec3(0, 0, -0.04);
