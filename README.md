@@ -11,3 +11,5 @@ Visit [https://freezemancoder.github.io/Lab-escape/](https://freezemancoder.gith
 This is a single-page HTML/JavaScript game. The main file is `index.html`.
 
 To run locally, open `index.html` in a web browser.
+
+<!-- Trigger rebuild -->
